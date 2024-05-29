@@ -7,9 +7,6 @@
   <a aria-label="stable version" href="https://www.npmjs.com/package/@hyperse/exec-program">
     <img alt="stable version" src="https://img.shields.io/npm/v/%40hyperse%2Fexec-program?branch=main&label=version&logo=npm&style=flat-quare&labelColor=000000" />
   </a>
-  <a>
-    <img alt="LoC" src="https://img.shields.io/bundlephobia/min/%40hyperse%2Fexec-program?style=flat-quare&labelColor=000000" />
-  </a>
   <a aria-label="Top language" href="https://github.com/hyperse-io/exec-program/search?l=typescript">
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/hyperse-io/exec-program?style=flat-square&labelColor=000&color=blue">
   </a>
