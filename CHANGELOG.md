@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.0.4
+
+### Patch Changes
+
+- [`05d727a`](https://github.com/hyperse-io/exec-program/commit/05d727a57e3a27c79d7df2fd58c35d90c4a6d42e) Thanks [@tianyingchun](https://github.com/tianyingchun)! - refactor, add `exec`
+
 ## 1.0.3
 
 ### Patch Changes
