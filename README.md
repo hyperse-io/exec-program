@@ -31,6 +31,45 @@ npm i --save @hyperse/exec-program
 
 ### Usage
 
+### runTsScript
+
+```ts
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { runTsScript } from '@hyperse/exec-program';
+
+const getDirname = (url: string, ...paths: string[]) => {
+  return join(dirname(fileURLToPath(url)), ...paths);
+};
+
+const cliPath = getDirname(import.meta.url, './cli-test.ts');
+const { stderr, stdout } = await runTsScript(cliPath);
+console.log(stderr, stdout);
+```
+
+### exec
+
+import { exec } from '@hyperse/exec-program';
+
+```ts
+const { stdout, stderr } = await exec(
+  'npm',
+  ['i', '--no-save', '--no-package-lock', ...toInstall],
+  {
+    cwd: target.directory,
+    maxBuffer: TEN_MEGA_BYTE,
+    env: this.options.npmEnv,
+  }
+);
+```
+
+```ts
+await exec('npm', ['pack', directory], {
+  cwd: this.uniqueDir,
+  maxBuffer: TEN_MEGA_BYTE,
+});
+```
+
 #### unit test
 
 1. config `tsconfig.json`
@@ -83,7 +122,7 @@ const cliPath = getDirname(import.meta.url, './cli-test.ts');
 
 describe('test suites of exec program', () => {
   it('should correct invoke cli.ts', async () => {
-    const { stderr, stdout } = await runTsScript(cliPath, {});
+    const { stderr, stdout } = await runTsScript(cliPath);
     console.log(stderr, stdout);
     expect(stderr).toBe('');
     expect(stdout).toMatch(/cli.../);

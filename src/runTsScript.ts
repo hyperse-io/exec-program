@@ -9,15 +9,13 @@ import { execa } from 'execa';
  */
 export const runTsScript = <T extends Options>(
   program: string,
-  options: T,
-  ...args: string[]
+  args?: readonly string[],
+  options?: T
 ) => {
   const moduleArgs = [
     '--import',
     '@hyperse/ts-node-paths/register',
     '--no-warnings',
   ];
-  return execa('node', moduleArgs.concat(program, ...args), {
-    ...options,
-  });
+  return execa('node', moduleArgs.concat(program, ...(args || [])), options);
 };
