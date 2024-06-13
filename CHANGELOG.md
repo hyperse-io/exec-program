@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.0.5
+
+### Patch Changes
+
+- [`031f004`](https://github.com/hyperse-io/exec-program/commit/031f00464baa63a4c9b4c3c11f7dc534b48e7050) Thanks [@tianyingchun](https://github.com/tianyingchun)! - export `ExecOptions`
+
 ## 1.0.4
 
 ### Patch Changes
