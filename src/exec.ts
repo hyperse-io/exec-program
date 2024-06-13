@@ -1,4 +1,5 @@
-import { execa, Options } from 'execa';
+import { execa } from 'execa';
+import { ExecOptions } from './types.js';
 
 /**
  * Execute a file with arguments and options
@@ -26,7 +27,7 @@ import { execa, Options } from 'execa';
  * @param options - Options to pass to `execa`
  * @returns A `ResultPromise` that is both:
  */
-export function exec<T extends Options>(
+export function exec<T extends ExecOptions>(
   file: string,
   args?: readonly string[],
   options?: T
