@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.0.6
+
+### Patch Changes
+
+- [`ad10fb9`](https://github.com/hyperse-io/exec-program/commit/ad10fb9a23db851cd3a9e527b9c2d0b34e9cdd02) Thanks [@tianyingchun](https://github.com/tianyingchun)! - fix typings portable issue
+
 ## 1.0.5
 
 ### Patch Changes
