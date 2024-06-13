@@ -1,5 +1,5 @@
 import { execa } from 'execa';
-import { ExecOptions } from './types.js';
+import { ExecOptions, ExecResultPromise } from './types.js';
 
 /**
  * Execute a file with arguments and options
@@ -31,6 +31,6 @@ export function exec<T extends ExecOptions>(
   file: string,
   args?: readonly string[],
   options?: T
-) {
+): ExecResultPromise<{} & T> {
   return execa(file, args, options);
 }

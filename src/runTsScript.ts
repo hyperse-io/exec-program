@@ -1,5 +1,5 @@
 import { execa } from 'execa';
-import { ExecOptions } from './types.js';
+import { ExecOptions, ExecResultPromise } from './types.js';
 
 /**
  * Process execute typescript script file using `@hyperse/ts-node-paths`
@@ -11,7 +11,7 @@ export const runTsScript = <T extends ExecOptions>(
   program: string,
   args?: readonly string[],
   options?: T
-) => {
+): ExecResultPromise<{} & T> => {
   const moduleArgs = [
     '--import',
     '@hyperse/ts-node-paths/register',
