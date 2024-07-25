@@ -7,10 +7,5 @@
     "incremental": false,
     "paths": {}
   },
-  "exclude": [
-    "**/*.stories.tsx",
-    "**/*.stories.mdx",
-    ".storybook/**",
-    "dist"
-  ]
+  "exclude": ["**/*.stories.tsx", "**/*.stories.mdx", ".storybook/**", "dist"]
 }

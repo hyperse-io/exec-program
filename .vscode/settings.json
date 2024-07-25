@@ -16,8 +16,10 @@
   "[javascript]": {
     "editor.formatOnSave": false
   },
-  "eslint.experimental.useFlatConfig": true,
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+  "[json]": {
+    "editor.formatOnSave": false
   },
+  "[jsonc]": {
+    "editor.formatOnSave": false
+  }
 }
