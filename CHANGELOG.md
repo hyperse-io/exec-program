@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.0.7
+
+### Patch Changes
+
+- [`77dda75`](https://github.com/hyperse-io/exec-program/commit/77dda756553c3074320e3ad4d62d2060b9bba71b) Thanks [@tianyingchun](https://github.com/tianyingchun)! - bump version
+
 ## 1.0.6
 
 ### Patch Changes
