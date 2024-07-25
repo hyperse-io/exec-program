@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.0.9
+
+### Patch Changes
+
+- [`57ad1af`](https://github.com/hyperse-io/exec-program/commit/57ad1af4f7a67eeea0bce5760743f7b2435d3573) Thanks [@tianyingchun](https://github.com/tianyingchun)! - fix package declaretion
+
 ## 1.0.8
 
 ### Patch Changes
