@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.0.8
+
+### Patch Changes
+
+- [`8e4e53e`](https://github.com/hyperse-io/exec-program/commit/8e4e53e3d7220a6d1ca30917a1e1797e10cd13fe) Thanks [@tianyingchun](https://github.com/tianyingchun)! - release new version
+
 ## 1.0.7
 
 ### Patch Changes
