@@ -15,7 +15,7 @@
   </a>
 </p>
 
-Execa runs commands in your script, application or library. Unlike shells, it is optimized for programmatic usage.
+Runs commands in your script, application or library. Unlike shells, it is optimized for programmatic usage.
 
 ## README
 
@@ -47,12 +47,12 @@ const { stderr, stdout } = await runTsScript(cliPath);
 console.log(stderr, stdout);
 ```
 
-### exec
-
-import { exec } from '@hyperse/exec-program';
+### execute command
 
 ```ts
-const { stdout, stderr } = await exec(
+import { execute } from '@hyperse/exec-program';
+
+const { stdout, stderr } = await execute(
   'npm',
   ['i', '--no-save', '--no-package-lock', ...toInstall],
   {
@@ -64,15 +64,15 @@ const { stdout, stderr } = await exec(
 ```
 
 ```ts
-await exec('npm', ['pack', directory], {
+await execute('npm', ['pack', directory], {
   cwd: this.uniqueDir,
   maxBuffer: TEN_MEGA_BYTE,
 });
 ```
 
-#### unit test
+#### run ts file for unit testing
 
-1. config `tsconfig.json`
+config `tsconfig.json`
 
 ```json
 {
@@ -98,7 +98,7 @@ await exec('npm', ['pack', directory], {
   ]
 ```
 
-2. create `cli-test.ts`
+create `cli-test.ts`
 
 ```ts
 // cause of `tsconfig.json` we can directly import source .ts file from '@hyperse/exec-program';
@@ -107,7 +107,7 @@ console.log(typeof runTsScript);
 console.log('cli...');
 ```
 
-3. create exec file `exec.spec.ts`
+create test file `main.spec.ts`
 
 ```ts
 import { dirname, join } from 'node:path';

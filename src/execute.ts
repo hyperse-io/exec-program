@@ -5,7 +5,7 @@ import { ExecOptions, ExecResultPromise } from './types.js';
  * Execute a file with arguments and options
  * @example
  * ```ts
- *  const { stdout, stderr } = await exec(
+ *  const { stdout, stderr } = await execute(
  *    'npm',
  *    ['i', '--no-save', '--no-package-lock', ...toInstall],
  *    {
@@ -17,7 +17,7 @@ import { ExecOptions, ExecResultPromise } from './types.js';
  *  ```
  * @example
  * ```ts
- *  await exec('npm', ['pack', directory], {
+ *  await execute('npm', ['pack', directory], {
  *    cwd: this.uniqueDir,
  *    maxBuffer: TEN_MEGA_BYTE,
  *  });
@@ -27,7 +27,7 @@ import { ExecOptions, ExecResultPromise } from './types.js';
  * @param options - Options to pass to `execa`
  * @returns A `ResultPromise` that is both:
  */
-export function exec<T extends ExecOptions>(
+export function execute<T extends ExecOptions>(
   file: string,
   args?: readonly string[],
   options?: T
