@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.0.10
+
+### Patch Changes
+
+- [`e349553`](https://github.com/hyperse-io/exec-program/commit/e349553ff1389e806bf71a6b9a83485edb925504) Thanks [@tianyingchun](https://github.com/tianyingchun)! - change `exec` to `execute` avoid npm publish ` security policy` issue
+
 ## 1.0.9
 
 ### Patch Changes
