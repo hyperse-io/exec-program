@@ -1,5 +1,5 @@
 import { execa } from 'execa';
-import { ExecOptions, ExecResultPromise } from './types.js';
+import type { ExecOptions, ExecResultPromise } from './types.js';
 
 /**
  * Execute a file with arguments and options

@@ -1,5 +1,5 @@
 import { execa } from 'execa';
-import { ExecOptions, ExecResultPromise } from './types.js';
+import type { ExecOptions, ExecResultPromise } from './types.js';
 
 /**
  * Process execute typescript script file using `@hyperse/ts-node-paths`
