@@ -14,7 +14,7 @@ export const runTsScript = <T extends ExecOptions>(
 ): ExecResultPromise<{} & T> => {
   const moduleArgs = [
     '--import',
-    '@hyperse/ts-node-paths/register',
+    '@swc-node/register/esm-register',
     '--no-warnings',
   ];
   return execa('node', moduleArgs.concat(program, ...(args || [])), options);
