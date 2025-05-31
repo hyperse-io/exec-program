@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.1.0
+
+### Minor Changes
+
+- [`9b98a80`](https://github.com/hyperse-io/exec-program/commit/9b98a803282920a516d3a5ad570d3f940b0b249f) Thanks [@tianyingchun](https://github.com/tianyingchun)! - change ts-node to swc-node
+
 ## 1.0.11
 
 ### Patch Changes
