@@ -1,5 +1,11 @@
 # @hyperse/exec-program
 
+## 1.2.0
+
+### Minor Changes
+
+- [`56a3219`](https://github.com/hyperse-io/exec-program/commit/56a32192e9c4ce536afd19912f5f8554c1869be6) Thanks [@tianyingchun](https://github.com/tianyingchun)! - migrate to @hyperse/ts-node with swc compiler
+
 ## 1.1.0
 
 ### Minor Changes
