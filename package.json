@@ -62,8 +62,7 @@
     }
   },
   "dependencies": {
-    "@swc-node/register": "^1.10.10",
-    "@swc/core": "^1.11.29",
+    "@hyperse/ts-node": "^1.0.1",
     "execa": "^9.6.0"
   },
   "devDependencies": {
