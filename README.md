@@ -72,6 +72,13 @@ Executes a shell command with specified arguments and options.
 ```typescript
 import { execute } from '@hyperse/exec-program';
 
+/**
+ * Execute a file with arguments and options
+ * @param file - The program/script to execute, as a string or file URL
+ * @param args - Arguments to pass to `file` on execution.
+ * @param options - Options to pass to `execa`
+ * @returns A `ResultPromise` that is both:
+ */
 declare function execute<T extends ExecOptions>(
   file: string,
   args?: readonly string[],
