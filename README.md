@@ -15,25 +15,75 @@
   </a>
 </p>
 
-Runs commands in your script, application or library. Unlike shells, it is optimized for programmatic usage.
+A Node.js utility for programmatically executing commands in your scripts, applications, or libraries. Unlike traditional shells, it's optimized for programmatic usage with TypeScript support.
 
-## README
+## Table of Contents
 
-- [Getting started](#getting-started)
-- [Common use cases](#usage)
-  - [Vitest unitest](#unit-test)
+- [Installation](#installation)
+- [Features](#features)
+- [API Reference](#api-reference)
+  - [runTsScript](#runtsscript)
+  - [execute](#execute)
+- [Usage Examples](#usage-examples)
+  - [Running TypeScript Files](#running-typescript-files)
+  - [Executing Commands](#executing-commands)
+  - [Unit Testing with Vitest](#unit-testing-with-vitest)
+- [Configuration](#configuration)
 
-### Getting started
+## Installation
 
 ```bash
-npm i --save @hyperse/exec-program
+npm install --save @hyperse/exec-program
 ```
 
-### Usage
+## Features
+
+- 🚀 Execute TypeScript files directly
+- 💻 Run shell commands programmatically
+- 📘 TypeScript support out of the box
+- ⚡ Promise-based API
+- ⚙️ Configurable execution options
+- 🧪 Built-in support for unit testing
+
+## API Reference
 
 ### runTsScript
 
-```ts
+Executes a TypeScript file and returns its output.
+
+```typescript
+/**
+ * Process execute typescript script file using `@hyperse/ts-node`
+ * @param program - The absolute typescript file path
+ * @param options - The configuration of `execa` { env: { TS_NODE_PROJECT: tsconfig } }
+ * @param args - The runtime argv for program
+ */
+declare const runTsScript: <T extends ExecOptions>(
+  program: string,
+  args?: readonly string[],
+  options?: T
+) => ExecResultPromise<{} & T>;
+```
+
+### execute
+
+Executes a shell command with specified arguments and options.
+
+```typescript
+import { execute } from '@hyperse/exec-program';
+
+declare function execute<T extends ExecOptions>(
+  file: string,
+  args?: readonly string[],
+  options?: T
+): ExecResultPromise<{} & T>;
+```
+
+## Usage Examples
+
+### Running TypeScript Files
+
+```typescript
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runTsScript } from '@hyperse/exec-program';
@@ -42,74 +92,67 @@ const getDirname = (url: string, ...paths: string[]) => {
   return join(dirname(fileURLToPath(url)), ...paths);
 };
 
+// Execute a TypeScript file
 const cliPath = getDirname(import.meta.url, './cli-test.ts');
 const { stderr, stdout } = await runTsScript(cliPath);
 console.log(stderr, stdout);
 ```
 
-### execute command
+### Executing Commands
 
-```ts
+```typescript
 import { execute } from '@hyperse/exec-program';
 
+// Install npm packages
 const { stdout, stderr } = await execute(
   'npm',
-  ['i', '--no-save', '--no-package-lock', ...toInstall],
+  ['i', '--no-save', '--no-package-lock', ...packages],
   {
-    cwd: target.directory,
+    cwd: targetDirectory,
     maxBuffer: TEN_MEGA_BYTE,
-    env: this.options.npmEnv,
+    env: npmEnv,
   }
 );
-```
 
-```ts
+// Create npm package
 await execute('npm', ['pack', directory], {
-  cwd: this.uniqueDir,
+  cwd: uniqueDir,
   maxBuffer: TEN_MEGA_BYTE,
 });
 ```
 
-#### run ts file for unit testing
+### Unit Testing with Vitest
 
-config `tsconfig.json`
+1. Configure your `tsconfig.json`:
 
 ```json
 {
   "extends": "@hyperse/eslint-config-hyperse/tsconfig.base.json",
   "compilerOptions": {
-    ...
     "baseUrl": "./src",
     "rootDir": "./",
     "outDir": "dist",
-    "types": [
-      "vitest/globals"
-    ],
+    "types": ["vitest/globals"],
     "paths": {
-      "@hyperse/exec-program": [
-        "../src/index.js"
-      ],
+      "@hyperse/exec-program": ["../src/index.js"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}
 ```
 
-create `cli-test.ts`
+2. Create a test file (`cli-test.ts`):
 
-```ts
-// cause of `tsconfig.json` we can directly import source .ts file from '@hyperse/exec-program';
+```typescript
 import { runTsScript } from '@hyperse/exec-program';
+
 console.log(typeof runTsScript);
 console.log('cli...');
 ```
 
-create test file `main.spec.ts`
+3. Write your test (`main.spec.ts`):
 
-```ts
+```typescript
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runTsScript } from '@hyperse/exec-program';
@@ -121,11 +164,16 @@ const getDirname = (url: string, ...paths: string[]) => {
 const cliPath = getDirname(import.meta.url, './cli-test.ts');
 
 describe('test suites of exec program', () => {
-  it('should correct invoke cli.ts', async () => {
+  it('should correctly invoke cli.ts', async () => {
     const { stderr, stdout } = await runTsScript(cliPath);
-    console.log(stderr, stdout);
     expect(stderr).toBe('');
     expect(stdout).toMatch(/cli.../);
   });
 });
 ```
+
+## Configuration
+
+The library supports various configuration options for both `runTsScript` and `execute` functions. These options allow you to customize the execution environment, working directory, and other parameters.
+
+For detailed configuration options, please refer to the TypeScript types in the source code.
