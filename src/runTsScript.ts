@@ -4,7 +4,7 @@ import type { ExecOptions, ExecResultPromise } from './types.js';
 /**
  * Process execute typescript script file using `@hyperse/ts-node`
  * @param program - The absolute typescript file path
- * @param options - The configuration of `execa` { env: { TS_NODE_PROJECT: tsconfig } }
+ * @param options - The configuration of `execa` { env: { HPS_TS_NODE_PROJECT: tsconfig } }
  * @param args - The runtime argv for program
  */
 export const runTsScript = <T extends ExecOptions>(

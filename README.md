@@ -55,7 +55,7 @@ Executes a TypeScript file and returns its output.
 /**
  * Process execute typescript script file using `@hyperse/ts-node`
  * @param program - The absolute typescript file path
- * @param options - The configuration of `execa` { env: { TS_NODE_PROJECT: tsconfig } }
+ * @param options - The configuration of `execa` { env: { HPS_TS_NODE_PROJECT: tsconfig } }
  * @param args - The runtime argv for program
  */
 declare const runTsScript: <T extends ExecOptions>(
