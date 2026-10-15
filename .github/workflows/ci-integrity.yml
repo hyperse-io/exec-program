@@ -6,9 +6,10 @@ on:
       - main
       - major
       - minor
+      - dev
     # Only consider those paths to trigger the action
     paths:
-      - 'packages/**'
+      - 'src/**'
       - 'package.json'
       - '*.lock'
       - '.yarnrc.yml'
@@ -21,13 +22,14 @@ on:
       - main
       - major
       - minor
+      - dev
     types:
       - opened
       - synchronize
       - reopened
     # Only consider those paths to trigger the action
     paths:
-      - 'packages/**'
+      - 'src/**'
       - 'package.json'
       - '*.lock'
       - '.yarnrc.yml'
@@ -36,10 +38,11 @@ on:
       - '.github/**'
 jobs:
   test:
+    if: ${{ !startsWith(github.head_ref, 'changeset-release/') }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [24.x]
     steps:
       - uses: actions/checkout@v4
 
@@ -51,14 +54,18 @@ jobs:
       - name: 📥 Install Dependencies
         run: yarn --frozen-lockfile
 
+      - name: Typecheck
+        run: |
+          yarn typecheck
+
       - name: Linter
         run: |
           yarn lint
 
-      - name: Unit tests
-        run: |
-          yarn test
-
       - name: Build
         run: |
           yarn build
+      #  build first then exec unit tests
+      - name: Unit tests
+        run: |
+          yarn test
